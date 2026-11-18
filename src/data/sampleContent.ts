@@ -2,8 +2,8 @@ import type { Category, Moment } from './types';
 
 /**
  * Placeholder content so the app runs before the CMS is connected.
- * The media URLs are public sample files, not meditation footage.
- * Replace them with your own clips, or connect Sanity (see README).
+ * The clips and music are simple generated placeholders bundled with the app,
+ * so they play offline. Replace them by connecting Sanity (see README).
  */
 export const sampleCategories: Category[] = [
   { id: 'sleep', title: 'Sleep', description: 'Slow scenes to wind down' },
@@ -12,15 +12,14 @@ export const sampleCategories: Category[] = [
   { id: 'nature', title: 'Nature', description: 'Forests, oceans and snow' },
 ];
 
-const music = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3';
-const gtv = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample';
+const music = require('../../assets/moments/ambient-pad.m4a');
 
 export const sampleMoments: Moment[] = [
   {
     id: 'cabin-snow',
     title: 'Snow on the cabin',
     caption: 'Breathe in as the snow falls',
-    videoUrl: `${gtv}/ForBiggerBlazes.mp4`,
+    videoUrl: require('../../assets/moments/snow-cabin.mp4'),
     musicUrl: music,
     categoryIds: ['sleep', 'nature'],
   },
@@ -28,7 +27,7 @@ export const sampleMoments: Moment[] = [
     id: 'ocean',
     title: 'Evening tide',
     caption: 'Let each wave carry a thought away',
-    videoUrl: `${gtv}/ForBiggerEscapes.mp4`,
+    videoUrl: require('../../assets/moments/evening-tide.mp4'),
     musicUrl: music,
     categoryIds: ['calm', 'nature'],
   },
@@ -36,7 +35,7 @@ export const sampleMoments: Moment[] = [
     id: 'forest',
     title: 'Forest light',
     caption: 'Notice five things you can see',
-    videoUrl: `${gtv}/ForBiggerJoyrides.mp4`,
+    videoUrl: require('../../assets/moments/forest-light.mp4'),
     musicUrl: music,
     categoryIds: ['focus', 'nature'],
   },
@@ -44,7 +43,7 @@ export const sampleMoments: Moment[] = [
     id: 'rain',
     title: 'Rain on glass',
     caption: 'Soften your shoulders',
-    videoUrl: `${gtv}/ForBiggerMeltdowns.mp4`,
+    videoUrl: require('../../assets/moments/rain-on-glass.mp4'),
     musicUrl: music,
     categoryIds: ['sleep', 'calm'],
   },

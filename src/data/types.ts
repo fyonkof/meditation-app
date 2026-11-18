@@ -1,3 +1,6 @@
+/** A remote URL (from the CMS) or a bundled file from `require()` (sample content). */
+export type MediaSource = string | number;
+
 export type Category = {
   id: string;
   title: string;
@@ -12,10 +15,10 @@ export type Moment = {
   /** Short line shown over the video, e.g. "Breathe with the falling snow". */
   caption?: string;
   /** Looping video, up to 60 seconds. HLS (.m3u8) from Mux is best; MP4 works too. */
-  videoUrl: string;
+  videoUrl: MediaSource;
   /** Background music. Loops with the video. */
-  musicUrl?: string;
+  musicUrl?: MediaSource;
   /** Guided voiceover. Plays once per view. */
-  voiceoverUrl?: string;
+  voiceoverUrl?: MediaSource;
   categoryIds: string[];
 };
