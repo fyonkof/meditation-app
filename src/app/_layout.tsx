@@ -1,8 +1,9 @@
 import { setAudioModeAsync } from 'expo-audio';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { AudioPrefsProvider } from '../lib/audioPrefs';
+import { BookmarksProvider } from '../lib/bookmarks';
+import { colors } from '../theme';
 
 export default function RootLayout() {
   useEffect(() => {
@@ -12,16 +13,20 @@ export default function RootLayout() {
 
   return (
     <AudioPrefsProvider>
-      <StatusBar style="light" />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: '#0B0F14' },
-        }}
-      >
-        <Stack.Screen name="index" />
-        <Stack.Screen name="feed" options={{ animation: 'fade' }} />
-      </Stack>
+      <BookmarksProvider>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            contentStyle: { backgroundColor: colors.background },
+          }}
+        >
+          <Stack.Screen name="index" />
+          <Stack.Screen
+            name="feed"
+            options={{ animation: 'fade', contentStyle: { backgroundColor: '#000' } }}
+          />
+        </Stack>
+      </BookmarksProvider>
     </AudioPrefsProvider>
   );
 }

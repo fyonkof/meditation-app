@@ -26,8 +26,9 @@ src/app/            Screens (each file is a route)
   _layout.tsx       App shell and audio setup
   index.tsx         Home: "Start now" and categories
   feed.tsx          Full-screen swipe feed
-src/components/     MomentView (video + audio), AudioToggles
-src/lib/            Content loading (Sanity or sample), audio on/off preferences
+src/components/     MomentView (video + audio), PlayerControls, RoundButton
+src/lib/            Content loading (Sanity or sample), audio prefs, bookmarks
+src/theme/          Shared colors and sizes
 src/data/           Content types and sample content
 sanity/             CMS content model and setup steps
 ```

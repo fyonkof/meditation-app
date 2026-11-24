@@ -10,6 +10,10 @@ export const sampleCategories: Category[] = [
   { id: 'focus', title: 'Focus', description: 'Steady scenes for deep work' },
   { id: 'calm', title: 'Calm', description: 'A minute to reset' },
   { id: 'nature', title: 'Nature', description: 'Forests, oceans and snow' },
+  { id: 'breathe', title: 'Breathe', description: 'Follow a slow, even rhythm' },
+  { id: 'morning', title: 'Morning', description: 'Start the day gently' },
+  { id: 'stress', title: 'Ease stress', description: 'Let tension drain away' },
+  { id: 'evening', title: 'Evening', description: 'Close the day with ease' },
 ];
 
 const music = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3';
@@ -22,7 +26,7 @@ export const sampleMoments: Moment[] = [
     caption: 'Breathe in as the snow falls',
     videoUrl: `${gtv}/ForBiggerBlazes.mp4`,
     musicUrl: music,
-    categoryIds: ['sleep', 'nature'],
+    categoryIds: ['sleep', 'nature', 'evening'],
   },
   {
     id: 'ocean',
@@ -30,7 +34,7 @@ export const sampleMoments: Moment[] = [
     caption: 'Let each wave carry a thought away',
     videoUrl: `${gtv}/ForBiggerEscapes.mp4`,
     musicUrl: music,
-    categoryIds: ['calm', 'nature'],
+    categoryIds: ['calm', 'nature', 'breathe', 'stress'],
   },
   {
     id: 'forest',
@@ -38,7 +42,7 @@ export const sampleMoments: Moment[] = [
     caption: 'Notice five things you can see',
     videoUrl: `${gtv}/ForBiggerJoyrides.mp4`,
     musicUrl: music,
-    categoryIds: ['focus', 'nature'],
+    categoryIds: ['focus', 'nature', 'morning'],
   },
   {
     id: 'rain',
@@ -46,6 +50,6 @@ export const sampleMoments: Moment[] = [
     caption: 'Soften your shoulders',
     videoUrl: `${gtv}/ForBiggerMeltdowns.mp4`,
     musicUrl: music,
-    categoryIds: ['sleep', 'calm'],
+    categoryIds: ['sleep', 'calm', 'stress', 'evening'],
   },
 ];

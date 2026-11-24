@@ -2,8 +2,11 @@ import { useAudioPlayer } from 'expo-audio';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { Moment } from '../data/types';
 import { useAudioPrefs } from '../lib/audioPrefs';
+import { CONTROLS_MARGIN } from './PlayerControls';
+import { ROUND_BUTTON_SIZE } from './RoundButton';
 
 type Props = {
   moment: Moment;
@@ -14,6 +17,9 @@ type Props = {
 
 export function MomentView({ moment, active, height }: Props) {
   const { musicOn, voiceOn } = useAudioPrefs();
+  const insets = useSafeAreaInsets();
+  // Sit the title just above the back button in the bottom-left corner.
+  const overlayBottom = insets.bottom + CONTROLS_MARGIN + ROUND_BUTTON_SIZE + 20;
 
   // Video carries no sound of its own; music and voiceover are separate tracks
   // so people can switch each one off.
@@ -60,7 +66,7 @@ export function MomentView({ moment, active, height }: Props) {
         contentFit="cover"
         nativeControls={false}
       />
-      <View style={styles.overlay} pointerEvents="none">
+      <View style={[styles.overlay, { bottom: overlayBottom }]} pointerEvents="none">
         <Text style={styles.title}>{moment.title}</Text>
         {moment.caption ? <Text style={styles.caption}>{moment.caption}</Text> : null}
       </View>
@@ -70,7 +76,7 @@ export function MomentView({ moment, active, height }: Props) {
 
 const styles = StyleSheet.create({
   container: { width: '100%', backgroundColor: '#000' },
-  overlay: { position: 'absolute', left: 20, right: 90, bottom: 60 },
+  overlay: { position: 'absolute', left: CONTROLS_MARGIN, right: CONTROLS_MARGIN + ROUND_BUTTON_SIZE + 16 },
   title: {
     color: '#fff',
     fontSize: 24,
